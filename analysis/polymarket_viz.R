@@ -8,8 +8,21 @@ library(ggtext)
 
 outcomes <- read_csv("../data/outcomes.csv")
 
+outcomes %>%  
+  filter(prediction_price < .95,  
+         volume > 100000) %>% 
+  group_by(correct_prediction) %>% 
+  tally()
 # viz 1 -- DJ vs other
 # -----
+
+outcomes %>%  
+  filter(prediction_price < .95,  
+         volume > 100000) %>% 
+  filter(!is.na(correct_prediction)) %>%  
+  mutate(trump_flag = ifelse(grepl("trump",tolower(question)), "Political events\nmentioning Trump", "Other\npolitical events")) %>%  
+  group_by(trump_flag, correct_prediction) %>%  
+  tally() 
 
 trump_outcomes <- outcomes %>%  
   filter(prediction_price < .95,  
@@ -31,11 +44,11 @@ trump_outcomes %>%
               size=1, 
               flip=TRUE,
               color="white",
-              n_rows = 5) +  
+              n_rows = 10) +  
   scale_fill_manual(values = c( "Incorrect prediction" = "grey", "Correct prediction" = "#95CB99")) +  # Swap colors accordingly
   ylab("Percentage of Political Betting Events") +  
   labs(title="Predictions on Trump are less accurate",
-       subtitle="Proportion of political Polymarket events\nwhere market correctly predicted outcome") +  
+       subtitle="Proportion of political Polymarket events where market correctly predicted outcome") +  
   facet_wrap(~factor(trump_flag, levels = c("Political events\nmentioning Trump", "Other\npolitical events")),
              ncol=2,  
              strip.position = "bottom") +  
@@ -56,13 +69,17 @@ trump_outcomes %>%
 ggsave("../img/waffle_trump_accuracy.png", 
        bg = "white",
        height = 8, 
-       width = 6)
+       width = 8)
 
 ggsave("../../personal-website/polymarket-accuracy/assets/waffle_trump_accuracy.png", 
        bg = "white",
        height = 8, 
-       width = 6)
+       width = 8)
   
+ggsave("../../personal-website/assets/waffle_trump_accuracy.png", 
+       bg = "white",
+       height = 4.5, 
+       width = 8)
 
 # viz 2 -- percentage/time
 # -----
@@ -112,10 +129,10 @@ month_df %>%
 
 ggsave("../img/trump_event_prop.png", 
        bg = "white",
-       height = 6, 
+       height = 8, 
        width = 10)
 
 ggsave("../../personal-website/polymarket-accuracy/assets/trump_event_prop.png", 
        bg = "white",
-       height = 6, 
+       height = 8, 
        width = 10)
