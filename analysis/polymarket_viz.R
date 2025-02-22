@@ -110,7 +110,7 @@ month_df %>%
             hjust = 1.2
   ) +
   labs(title="In January 2025, <span style='color:#E81B23;'>Trump</span> dominated political prediction events",
-       subtitle="Percentage of political Polymarket events mentioning Trump by month") + 
+       subtitle="Percentage of political Polymarket events mentioning Trump by creation month") + 
   theme_void() + 
   theme(
     plot.title = element_markdown(size = 18, face = "bold", margin = margin(t = 15, b =5, l = -60)),  
