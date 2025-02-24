@@ -47,7 +47,7 @@ trump_outcomes %>%
               n_rows = 10) +  
   scale_fill_manual(values = c( "Incorrect prediction" = "grey", "Correct prediction" = "#95CB99")) +  # Swap colors accordingly
   ylab("Percentage of Political Betting Events") +  
-  labs(title="Predictions on Trump are less accurate",
+  labs(title="With money on the line, Trump predictions are less accurate",
        subtitle="Proportion of political Polymarket events where market correctly predicted outcome") +  
   facet_wrap(~factor(trump_flag, levels = c("Political events\nmentioning Trump", "Other\npolitical events")),
              ncol=2,  
