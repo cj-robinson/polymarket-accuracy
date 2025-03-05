@@ -3,12 +3,10 @@
 Find the story here: [https://cj-robinson.github.io/polymarket-accuracy](https://cj-robinson.github.io/polymarket-accuracy/)
 
 ### Overview/Findings
---
 
 This project compared political betting market events from Polymarket in 2024 and 2025 with a focus on events that mention Trump. I find that Trump-related events are 12 percentage points less accurate (68% accurate) than other political events on the platform (80%). 
 
 ### Goals
---
 
 I originally set out to examine prediction markets more broadly after they were largely praised after the 2024 election. I was skeptical of the ability for these markets to make accurate predictions, mostly due to bias. 
 
@@ -16,7 +14,6 @@ This was an assignment for our Data Studio class at Columbia Journalism School's
 
 
 ### Data Collection and Analysis
---
 
 All code for the API pull can be found in **analysis/poly_api_pull.ipynb**
 
@@ -31,7 +28,6 @@ Two important methodological choices I made
 I then did exploratory data analysis using a combination Python/R notebook and transferring final designs/tweaking visualizations in R and Adobe Illustrator.
 
 ### Learnings
---
 
 This project's data pull was a lot more time consuming than expected -- the Polymarket API is not super well documented and often had multiple endpoints with overlapping information. There were also a couple of retries for pulls when I realized I needed information from an endpoint after already running the loop, so would probably benefit me to run API calls with a smaller sample and do some basic analysis before launching into 5K cases that take a second each. 
 
